@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <button 
+  class="btn btn-primary"
+  (click)="goToCreate()">
+  ➕ Crear Autor
+</button>
+  <h2>Autores</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Fecha cumpleaños</th>
+        <th>Ciudad</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let a of authors">
+        <td>{{a.fullName}}</td>
+        <td>{{a.birthDate | date}}</td>
+        <td>{{a.city}}</td>
+        <td>{{a.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

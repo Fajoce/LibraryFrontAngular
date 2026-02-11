@@ -1,9 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { BookForm } from "./features/books/book-form/book-form";
+import { AuthorList } from "./features/authors/author-list/author-list";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterModule, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Libros</h2>
+
+    <button class="btn btn-success" (click)="goToCreate()">➕ Crear Libro</button>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Género</th>
+        <th>Año</th>
+        <th>Páginas</th>
+        <th>Autor</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let b of books">
+        <td>{{ b.title }}</td>
+        <td>{{ b.year }}</td>
+        <td>{{ b.genre }}</td>
+        <td>{{ b.pages }}</td>
+        <td>{{ b.authorName }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2>Crear Libro</h2>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+
+    <input class="form-control mb-2" placeholder="Título" formControlName="title">
+
+    <input class="form-control mb-2" placeholder="Genero" formControlName="genre">
+
+    <input type="number" class="form-control mb-2" placeholder="Año" formControlName="year">
+
+    <input type="number" class="form-control mb-2" placeholder="Paginas" formControlName="pages">
+
+  <select formControlName="authorId" class="form-control">
+  <option value="">Seleccione un autor</option>
+  <option *ngFor="let author of authors" [value]="author.id">
+    {{ author.fullName }}
+  </option>
+</select>
+
+    <button type="submit" class="btn btn-primary">
+  Guardar
+</button>
+
+  </form>
+</div>
