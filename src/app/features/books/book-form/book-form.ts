@@ -5,6 +5,8 @@ import { AuthorService } from '../../../core/author-service';
 import { Author } from '../../../models/author';
 import { CommonModule } from '@angular/common';
 import { CreateBook } from '../../../shared/create-book';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-book-form',
@@ -16,6 +18,8 @@ export class BookForm {
 private fb = inject(FormBuilder);
   private bookService = inject(BookService);
   private authorService = inject(AuthorService);
+  private router = inject(Router);
+  
 
   authors: Author[] = [];
 
@@ -35,21 +39,44 @@ form = this.fb.group({
     this.authorService.getAll().subscribe(res => this.authors = res);
   }
 
+
+
 save() {
-  console.log(this.form.value);
-  console.log(this.form.valid);
-  console.log(this.form.errors);
+
   if (this.form.invalid) return;
 
   const raw = this.form.getRawValue();
 
   const request: CreateBook = {
     ...raw,
-    authorId: raw.authorId!   // <- non-null assertion
+    authorId: raw.authorId!
   };
 
-  this.bookService.create(request).subscribe();
-} 
+  this.bookService.create(request).subscribe({
+    next: () => {
+      alert("Libro creado correctamente");
+      this.router.navigate(['/books']);
+    },
+    error: (err: HttpErrorResponse) => {
+
+      if (err.status === 400) {
+
+        // Mensaje que viene del backend
+        const backendMessage =
+          err.error?.message ||
+          err.error?.title ||
+          "No es posible registrar el libro, se alcanzó el máximo permitido.";
+
+        alert(backendMessage);
+      }
+
+      else {
+        alert("Error inesperado");
+      }
+    }
+  });
 }
+}
+
 
 
