@@ -19,7 +19,7 @@ private cdr = inject(ChangeDetectorRef);
 
 ngOnInit() {
    this.service.getAll().subscribe(res => {
-    this.authors = res;
+    this.authors = res.items;
     this.cdr.detectChanges();
   });  
 }

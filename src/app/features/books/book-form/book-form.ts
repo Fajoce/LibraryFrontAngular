@@ -36,7 +36,7 @@ form = this.fb.group({
 
 
   ngOnInit() {
-    this.authorService.getAll().subscribe(res => this.authors = res);
+    this.authorService.getAll().subscribe(res => this.authors = res.items);
   }
 
 
