@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
-import { AuthorService } from '../../../core/author-service';
+import { AuthorService } from '../../../core/services/author-service';
 import { Author } from '../../../models/author';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterModule } from '@angular/router';

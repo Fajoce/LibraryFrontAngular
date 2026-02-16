@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Author } from '../models/author';
-import { PaginatedResponse } from '../models/paginated-response';
+import { Author } from '../../models/author';
+import { PaginatedResponse } from '../../models/paginated-response';
+import { environment } from '../environment/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthorService {
   private http = inject(HttpClient);
-  private url = 'https://localhost:7230/api/Authors';
+  private url = `${environment.apiUrl}/authors`;
 
 getAll(): Observable<PaginatedResponse<Author>> {
   return this.http.get<PaginatedResponse<Author>>(this.url);

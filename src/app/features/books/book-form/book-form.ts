@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BookService } from '../../../core/book-service';
-import { AuthorService } from '../../../core/author-service';
+import { BookService } from '../../../core/services/book-service';
+import { AuthorService } from '../../../core/services/author-service';
 import { Author } from '../../../models/author';
 import { CommonModule } from '@angular/common';
 import { CreateBook } from '../../../shared/create-book';

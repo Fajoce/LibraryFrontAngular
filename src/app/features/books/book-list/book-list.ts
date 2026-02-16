@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
-import { BookService } from '../../../core/book-service';
+import { BookService } from '../../../core/services/book-service';
 import { Router, RouterModule } from '@angular/router';
 import { Book } from '../../../models/book';
 import { CommonModule } from '@angular/common';
