@@ -18,8 +18,12 @@ private service = inject(BookService);
   books: Book[] = [];
 
 ngOnInit() {
+this.getAllBooks();
+}
+getAllBooks(){
   this.service.getAll().subscribe(res => {
     this.books = res.items;
+     this.cdr.detectChanges();
     console.log(this.books)
   });
 }
